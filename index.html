@@ -1,0 +1,132 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AceSync - Premium Tracker</title>
+    <meta name="description" content="Track, sync, and binge smarter with AceSync.">
+    <meta name="keywords" content="acesync, movies, tv shows, tracking, premium, dark theme, entertainment">
+    <meta property="og:title" content="AceSync - Premium Tracker">
+    <meta property="og:description" content="Track, sync, and binge smarter with AceSync.">
+    <meta name="twitter:title" content="AceSync - Premium Tracker">
+    <meta name="twitter:description" content="Track, sync, and binge smarter with AceSync.">
+
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+
+    <style type="text/tailwindcss">
+        @layer theme {
+        :root {
+            --primary-color: #8b5cf6;
+            --primary-hover: #7c3aed;
+            --secondary-color: #1e1b23;
+            --accent-color: #2d2a33;
+            --text-light: #f8fafc;
+            --text-muted: #a1a1aa;
+            --background-dark: #0f0d12;
+            --card-bg: #1a1621;
+            --border-color: #2d2a33;
+            --gradient-from: #8b5cf6;
+            --gradient-to: #06b6d4;
+        }
+    }
+
+    @layer base {
+        body {
+            background: linear-gradient(135deg, var(--background-dark) 0%, var(--secondary-color) 100%);
+            color: var(--text-light);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            min-height: 100vh;
+        }
+    }
+
+    @layer components {
+        .btn-primary {
+            @apply bg-gradient-to-r from-[var(--primary-color)] to-[var(--gradient-to)] text-white px-6 py-3 rounded-xl font-semibold hover:from-[var(--primary-hover)] hover:to-cyan-400 transition-all duration-300 shadow-lg;
+        }
+        
+        .btn-secondary {
+            @apply border border-[var(--border-color)] text-[var(--text-light)] px-6 py-3 rounded-xl font-medium hover:bg-[var(--accent-color)] transition-all duration-300 backdrop-blur-sm;
+        }
+
+        .card {
+            @apply bg-[var(--card-bg)] rounded-2xl border border-[var(--border-color)] p-6 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 backdrop-blur-sm;
+        }
+
+        .card-compact {
+            @apply bg-[var(--card-bg)] rounded-xl border border-[var(--border-color)] p-4 hover:shadow-xl hover:shadow-purple-500/5 transition-all duration-300 backdrop-blur-sm;
+        }
+
+        .rating-thumb {
+            @apply w-10 h-10 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300;
+        }
+
+        .glass-effect {
+            @apply backdrop-blur-md border border-[var(--border-color)];
+            background-color: rgba(26, 22, 33, 0.8);
+        }
+
+        .shine-text {
+            background: linear-gradient(90deg, var(--text-muted) 25%, var(--text-light) 50%, var(--text-muted) 75%);
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shine 2s infinite;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        @keyframes shine {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        @keyframes fade-in-up {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in-up {
+            animation: fade-in-up 0.6s ease-out forwards;
+            opacity: 0;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel" src="utils/traktApi.js"></script>
+    <script type="text/babel" src="components/NotificationToast.js"></script>
+    <script type="text/babel" src="components/SmartSearch.js"></script>
+    <script type="text/babel" src="components/Sidebar.js"></script>
+    <script type="text/babel" src="components/Header.js"></script>
+    <script type="text/babel" src="components/HeroSlider.js"></script>
+    <script type="text/babel" src="components/Hero.js"></script>
+    <script type="text/babel" src="components/ContinueWatching.js"></script>
+    <script type="text/babel" src="components/UpNext.js"></script>
+    <script type="text/babel" src="components/WatchlistSection.js"></script>
+    <script type="text/babel" src="components/UpcomingSchedule.js"></script>
+    <script type="text/babel" src="components/RecentlyWatched.js"></script>
+    <script type="text/babel" src="components/Recommendations.js"></script>
+    <script type="text/babel" src="components/MonthlyStats.js"></script>
+    <script type="text/babel" src="components/TrendingSection.js"></script>
+    <script type="text/babel" src="components/QuickActions.js"></script>
+    <script type="text/babel" src="components/Footer.js"></script>
+    <script type="text/babel" src="app.js"></script>
+
+</body>
+
+</html>
